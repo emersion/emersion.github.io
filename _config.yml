@@ -1,0 +1,39 @@
+# Site settings
+title: Emersion
+email: contact@emersion.fr
+description: > # this means to ignore newlines until "baseurl:"
+  Write an awesome description for your new site here. You can edit this
+  line in _config.yml. It will appear in your document head meta (for
+  Google search results) and in your feed.xml site description.
+baseurl: "" # the subpath of your site, e.g. /blog/
+url: "http://emersion.fr" # the base hostname & protocol for your site
+twitter_username: emersion_fr
+github_username: emersion
+deviantart_username: emersion-fr
+seenthis_username: emersion
+
+# Build settings
+markdown: kramdown
+
+collections:
+    projects_categories:
+        output: true
+        permalink: /category/:name/
+
+    projects:
+        output: true
+        permalink: /project/:name/
+
+defaults:
+    -
+        scope:
+            path: ""
+            type: projects_categories
+        values:
+            layout: category
+    -
+        scope:
+            path: ""
+            type: projects
+        values:
+            layout: project

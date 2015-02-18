@@ -1,0 +1,103 @@
+---
+layout: default
+---
+
+<!-- Marketing messaging and featurettes
+================================================== -->
+<!-- Wrap the rest of the page in another container to center all the content. -->
+<div class="marketing">
+  <!-- Three columns of text below the carousel -->
+  <div class="row">
+    {% for category in site.projects_categories %}
+      <div class="span4">
+        {% if 1 %}
+          <img class="img-circle" src="http://emersion.fr/img/portfolio/category/medium/{{category.slug}}.png"/>
+        {% else %}
+          <img src="http://emersion.fr/img/portfolio/generic/category.png"/>
+        {% endif %}
+        <h2>{{category.title}}</h2>
+        <p>{{category.summary}}</p>
+        <p><a class="btn btn-inverse" href="{{ category.url | prepend: site.baseurl }}">Plus &raquo;</a></p>
+      </div><!-- /.span4 -->
+    {% endfor %}
+
+    <div class="span4">
+      <img src="http://emersion.fr/img/contact/icon-medium.png">
+      <h2>Contact</h2>
+      <p>N'h&eacute;sitez pas &agrave; me contacter pour toute question !</p>
+      <p class="btn-group">
+        <a class="btn btn-primary" href="{{ '/about/' | prepend: site.baseurl }}">À propos</a>
+        <a class="btn" href="{{ '/contact/' | prepend: site.baseurl }}">Contact</a>
+      </p>
+    </div><!-- /.span4 -->
+  </div><!-- /.row -->
+
+  <!-- START THE FEATURETTES -->
+  <hr class="featurette-divider" />
+  {% assign i = 0 %}
+  {% for project in site.projects %}
+    {% assign slug = (project.relative_path | remove_first:'_projects/' | remove_first:'.md') %}
+    
+    {% if site.data.featured contains slug %}
+
+    {% capture picture_path %}/img/project/large/{{ slug }}.png{% endcapture %}
+    {% assign has_picture = (site.static_files | where:'path',picture_path | size) %}
+    {% assign modulo = i | modulo:2 %}
+    <div class="featurette">
+      {% if has_picture == 1 %}
+        <img src="{{ picture_path }}" class="featurette-image pull-{% if modulo == 1 %}right{% else %}left{% endif %}"/>
+      {% endif %}
+      <h2 class="featurette-heading">{{project.title}}. <span class="muted">{{project.subtitle}}</span></h2>
+      <p class="lead">{{ project.excerpt | strip_html }}</p>
+      <p><a class="btn btn-large btn-primary" href="{{ project.url | prepend: site.baseurl }}">En savoir plus &raquo;</a></p>
+    </div>
+
+    <span class="clearfix"></span>
+    <hr class="featurette-divider"/>
+
+    {% assign i = i | plus:1 %}
+    {% endif %}
+  {% endfor %}
+  <!-- /END THE FEATURETTES -->
+  
+  <div class="btn-group pull-right">
+    {% for category in site.projects_categories %}
+      <a href="{{ site.baseurl }}/category/{{ category.slug }}" class="btn btn-large btn-inverse">{{category.title}}</a>
+    {% endfor %}
+  </div>
+
+  <h1>Autres projets</h1>
+  <div class="row">
+    {% assign i = 0 %}
+    {% for project in site.projects %}
+      {% assign slug = (project.relative_path | remove_first:'_projects/' | remove_first:'.md') %}
+
+      {% unless site.data.featured contains slug %}
+
+      {% capture picture_path %}/img/project/medium/{{ slug }}.png{% endcapture %}
+      {% assign has_picture = (site.static_files | where:'path',picture_path | size) %}
+      {% assign row_index = i | modulo:3 %}
+
+      {% if row_index == 0 %}
+        </div><!-- /.row -->
+        <div class="row">
+      {% endif %}
+      <div class="span4">
+        {% if has_picture == 1 %}
+          <img src="{{ picture_path }}"/>
+        {% else %}
+          <img src="http://emersion.fr/img/portfolio/generic/project.png"/>
+        {% endif %}
+        <h2>{{project.title}}</h2>
+        <p>{{ project.excerpt | strip_html }}</p>
+        <p><a class="btn" href="{{ project.url | prepend: site.baseurl }}">Plus &raquo;</a></p>
+      </div><!-- /.span4 -->
+
+      {% assign i = i | plus:1 %}
+      {% endunless %}
+    {% endfor %}
+  </div><!-- /.row -->
+  {% unless site.posts | size %}
+    <p class="muted">Il n'y a aucun autre projet pour le moment.</p>
+  {% endunless %}
+</div><!-- /.container -->

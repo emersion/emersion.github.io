@@ -1,0 +1,54 @@
+---
+layout: default
+---
+
+<div class="container">
+	{% assign slug = (page.relative_path | remove_first:'_projects/' | remove_first:'.md') %}
+	{% capture picture_path %}/img/project/large/{{ slug }}.png{% endcapture %}
+	{% assign has_picture = (site.static_files | where:'path',picture_path | size) %}
+
+	<header class="featurette">
+		{% if has_picture == 1 %}
+			<img class="featurette-image pull-left" src="{{ picture_path }}"/>
+		{% endif %}
+		<h2 class="featurette-heading">{{ page.title }}. <span class="muted">{{ page.subtitle }}</span></h2>
+		<p class="lead">{{ page.excerpt }}</p>
+		<p>
+			{% if page.website %}
+				<a class="btn btn-large btn-primary" href="{{page.website}}" target="_blank">Acc&eacute;der au site Web &raquo;</a>
+			{% endif %}
+			<a class="btn btn-large btn-inverse" href="/category/{{page.category}}">Projets similaires</a>
+		</p>
+	</header>
+
+	{% if page.content %}
+		<hr />
+
+		{{ page.content }}
+	{% endif %}
+
+	{% if page.gallery %}
+	<h2>Galerie</h2>
+	<ul class="thumbnails">
+		{% for item in page.gallery %}
+			{% if null %}
+				</ul>
+				<ul class="thumbnails">
+			{% endif %}
+
+			<li class="span4">
+				{% if item.type == "youtube" %}
+				<div class="thumbnail">
+					<iframe src="https://www.youtube.com/embed/{{ item.url | remove:'https://www.youtube.com/watch?v=' }}?controls=2" width="360" height="250" frameborder="0" allowfullscreen></iframe>
+				</div>
+				{% endif %}
+				{% if item.type == "image" %}
+				<a href="{{ item.url }}" class="thumbnail" target="_blank">
+					<img src="{{ item.thumbnail_url }}" alt="{{ item.title }}" title="{{ item.title }}">
+				</a>
+				{% endif %}
+			</li><!-- /.span4 -->
+		{% endfor %}
+	</ul><!-- /.thumbnails -->
+	{% endif %}
+</div><!-- /.container -->
