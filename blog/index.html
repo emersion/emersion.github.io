@@ -1,0 +1,49 @@
+---
+layout: default
+title: Blog
+permalink: /blog/
+---
+
+<header>
+	<p class="pull-right">
+		<a href="atom.xml">Atom</a> &middot; <a href="rss.xml">RSS</a>
+	</p>
+	<h1>{{ page.title }}</h1>
+</header>
+
+{% for post in paginator.posts %}
+	<article>
+		<h2 id="{{ post.title | slugify }}"><a href="{{ post.url }}">{{ post.title }}</a></h2>
+		<p class="muted">{{ post.date | date_to_string }}</p>
+
+		{{ post.content }}
+	</article>
+{% endfor %}
+
+{% if paginator.total_pages > 1 %}
+<div class="pagination pagination-centered">
+  <ul>
+    {% if paginator.previous_page %}
+      <li><a href="{{ paginator.previous_page_path | prepend: site.baseurl | replace: '//', '/' }}">&laquo;</a></li>
+    {% else %}
+      <li class="disabled"><a href="#">&laquo;</a></li>
+    {% endif %}
+
+    {% for page in (1..paginator.total_pages) %}
+      {% if page == paginator.page %}
+        <li class="active"><a href="#">{{ page }}</a></li>
+      {% elsif page == 1 %}
+        <li><a href="{{ '/blog' | prepend: site.baseurl | replace: '//', '/' }}">{{ page }}</a></li>
+      {% else %}
+        <li><a href="{{ site.paginate_path | prepend: site.baseurl | replace: '//', '/' | replace: ':num', page }}">{{ page }}</a></li>
+      {% endif %}
+    {% endfor %}
+
+    {% if paginator.next_page %}
+      <li><a href="{{ paginator.next_page_path | prepend: site.baseurl | replace: '//', '/' }}">&raquo;</a></li>
+    {% else %}
+      <li class="disabled"><a href="#">&raquo;</a></li>
+    {% endif %}
+  </ul>
+</div>
+{% endif %}

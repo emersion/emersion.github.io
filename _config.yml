@@ -2,18 +2,21 @@
 title: Emersion
 email: contact@emersion.fr
 description: > # this means to ignore newlines until "baseurl:"
-  Write an awesome description for your new site here. You can edit this
-  line in _config.yml. It will appear in your document head meta (for
-  Google search results) and in your feed.xml site description.
+  Site personnel de Emersion
 baseurl: "" # the subpath of your site, e.g. /blog/
-url: "http://emersion.fr" # the base hostname & protocol for your site
+url: "https://emersion.github.io" # the base hostname & protocol for your site
 twitter_username: emersion_fr
 github_username: emersion
 deviantart_username: emersion-fr
 seenthis_username: emersion
 
+paginate: 5
+paginate_path: "/blog/page:num/"
+
 # Build settings
-markdown: kramdown
+markdown: redcarpet
+redcarpet:
+    extensions: ["no_intra_emphasis", "fenced_code_blocks", "autolink", "strikethrough", "superscript"]
 
 collections:
     projects_categories:
