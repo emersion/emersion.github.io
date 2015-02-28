@@ -90,3 +90,28 @@
 .carousel-caption .btn {
 	margin-top: 10px;
 }
+
+@media print {
+	.navbar-wrapper,
+	.carousel,
+	footer .pull-right {
+		display: none;
+	}
+}
+
+/* ARTICLE */
+
+article {
+	font-size: 16px;
+}
+article > p > img {
+	display: block;
+	margin: auto;
+	max-width: 100%;
+}
+
+@media print {
+	article > p > img {
+		page-break-inside: avoid;
+	}
+}
