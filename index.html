@@ -11,18 +11,18 @@ layout: default
     {% for category in site.projects_categories %}
       <div class="span4">
         {% if 1 %}
-          <img class="img-circle" src="http://emersion.fr/img/portfolio/category/medium/{{category.slug}}.png"/>
+          <img class="img-circle" src="{{ site.baseurl }}/img/category/medium/{{category.slug}}.png" alt="{{ category.title }}"/>
         {% else %}
-          <img src="http://emersion.fr/img/portfolio/generic/category.png"/>
+          <img src="{{ '/img/category/medium/generic.png' | prepend: site.baseurl }}" alt="Generic category"/>
         {% endif %}
-        <h2>{{category.title}}</h2>
-        <p>{{category.summary}}</p>
+        <h2>{{ category.title }}</h2>
+        <p>{{ category.summary }}</p>
         <p><a class="btn btn-inverse" href="{{ category.url | prepend: site.baseurl }}">Plus &raquo;</a></p>
       </div><!-- /.span4 -->
     {% endfor %}
 
     <div class="span4">
-      <img src="http://emersion.fr/img/contact/icon-medium.png">
+      <img src="{{ '/img/contact/icon-medium.png' | prepend: site.baseurl }}" alt="Contact">
       <h2>Contact</h2>
       <p>N'h&eacute;sitez pas &agrave; me contacter pour toute question !</p>
       <p class="btn-group">
@@ -45,9 +45,9 @@ layout: default
     {% assign modulo = i | modulo:2 %}
     <div class="featurette">
       {% if has_picture == 1 %}
-        <img src="{{ picture_path }}" class="featurette-image pull-{% if modulo == 1 %}right{% else %}left{% endif %}"/>
+        <img src="{{ picture_path }}" alt="{{ project.title }}" class="featurette-image pull-{% if modulo == 1 %}right{% else %}left{% endif %}"/>
       {% endif %}
-      <h2 class="featurette-heading">{{project.title}}. <span class="muted">{{project.subtitle}}</span></h2>
+      <h2 class="featurette-heading">{{ project.title }}. <span class="muted">{{ project.subtitle }}</span></h2>
       <p class="lead">{{ project.excerpt | strip_html }}</p>
       <p><a class="btn btn-large btn-primary" href="{{ project.url | prepend: site.baseurl }}">En savoir plus &raquo;</a></p>
     </div>
@@ -84,11 +84,11 @@ layout: default
       {% endif %}
       <div class="span4">
         {% if has_picture == 1 %}
-          <img src="{{ picture_path }}"/>
+          <img src="{{ picture_path }}" alt="{{ project.title }}"/>
         {% else %}
-          <img src="http://emersion.fr/img/portfolio/generic/project.png"/>
+          <img src="{{ '/img/project/medium/generic.png' | prepend: site.baseurl }}" alt="Generic project"/>
         {% endif %}
-        <h2>{{project.title}}</h2>
+        <h2>{{ project.title }}</h2>
         <p>{{ project.excerpt | strip_html }}</p>
         <p><a class="btn" href="{{ project.url | prepend: site.baseurl }}">Plus &raquo;</a></p>
       </div><!-- /.span4 -->

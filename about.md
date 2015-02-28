@@ -4,7 +4,7 @@ title: À propos
 permalink: /about/
 ---
 
-<img src="http://emersion.fr/img/portfolio/about/avatar.jpg" alt="Avatar" class="pull-right img-polaroid">
+<img src="{{ '/img/about/avatar.jpg' | prepend: site.baseurl }}" alt="Avatar" class="pull-right img-polaroid">
 
 <p class="lead">Je suis étudiant, développeur web, passionné d'informatique. Je soutiens la philosophie du Libre.</p>
 

@@ -3,7 +3,7 @@ layout: default
 ---
 
 <div class="container marketing">
-	<img class="img-circle pull-right" src="http://emersion.fr/img/portfolio/category/medium/{{ page.slug }}.png"/>
+	<img class="img-circle pull-right" src="{{ site.baseurl }}/img/category/medium/{{ page.slug }}.png"/>
 
 	<div class="page-header">
 		<h1>{{ page.title }}</h1>
@@ -26,7 +26,7 @@ layout: default
 				{% if has_picture == 1 %}
 					<img src="{{ picture_path }}"/>
 				{% else %}
-					<img src="http://emersion.fr/img/portfolio/generic/project.png"/>
+					<img src="{{ '/img/project/medium/generic.png' | prepend: site.baseurl }}"/>
 				{% endif %}
 				<h2>{{ project.title }}</h2>
 				<p>{{ project.excerpt }}</p>
