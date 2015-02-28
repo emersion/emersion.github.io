@@ -42,3 +42,9 @@ defaults:
             type: projects
         values:
             layout: project
+    -
+        scope:
+            path: ""
+            type: posts
+        values:
+            permalink: /blog/:year/:title/
