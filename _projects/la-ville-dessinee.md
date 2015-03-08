@@ -7,24 +7,24 @@ excerpt: "C'est parti du célèbre jeu « Sim City ». On a dessiné une feuille
 gallery:
 -
     type: image
-    thumbnail_url: http://emersion.fr/img/portfolio/gallery/la-ville-dessinee/thumbnails/bridge.jpg
-    url: http://emersion.fr/img/portfolio/gallery/la-ville-dessinee/bridge.jpg
+    thumbnail_url: http://emersion.fr/img/project-gallery/la-ville-dessinee/thumbnails/bridge.jpg
+    url: http://emersion.fr/img/project-gallery/la-ville-dessinee/bridge.jpg
 -
     type: image
-    thumbnail_url: http://emersion.fr/img/portfolio/gallery/la-ville-dessinee/thumbnails/flats.jpg
-    url: http://emersion.fr/img/portfolio/gallery/la-ville-dessinee/flats.jpg
+    thumbnail_url: http://emersion.fr/img/project-gallery/la-ville-dessinee/thumbnails/flats.jpg
+    url: http://emersion.fr/img/project-gallery/la-ville-dessinee/flats.jpg
 -
     type: image
-    thumbnail_url: http://emersion.fr/img/portfolio/gallery/la-ville-dessinee/thumbnails/parc.jpg
-    url: http://emersion.fr/img/portfolio/gallery/la-ville-dessinee/parc.jpg
+    thumbnail_url: http://emersion.fr/img/project-gallery/la-ville-dessinee/thumbnails/parc.jpg
+    url: http://emersion.fr/img/project-gallery/la-ville-dessinee/parc.jpg
 -
     type: image
-    thumbnail_url: http://emersion.fr/img/portfolio/gallery/la-ville-dessinee/thumbnails/railway-station.jpg
-    url: http://emersion.fr/img/portfolio/gallery/la-ville-dessinee/railway-station.jpg
+    thumbnail_url: http://emersion.fr/img/project-gallery/la-ville-dessinee/thumbnails/railway-station.jpg
+    url: http://emersion.fr/img/project-gallery/la-ville-dessinee/railway-station.jpg
 -
     type: image
-    thumbnail_url: http://emersion.fr/img/portfolio/gallery/la-ville-dessinee/thumbnails/overview.jpg
-    url: http://emersion.fr/img/portfolio/gallery/la-ville-dessinee/overview.jpg
+    thumbnail_url: http://emersion.fr/img/project-gallery/la-ville-dessinee/thumbnails/overview.jpg
+    url: http://emersion.fr/img/project-gallery/la-ville-dessinee/overview.jpg
 ---
 
 Trois œuvres au total, dont deux en noir & blanc et une en couleurs.

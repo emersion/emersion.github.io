@@ -7,14 +7,14 @@ excerpt: "Voici quelques croquis de certains monuments de Londres que j'ai faits
 gallery:
 -
     type: image
-    url: http://emersion.fr/img/portfolio/gallery/croquis-de-londres-2012/big-ben.jpg
-    thumbnail_url: http://emersion.fr/img/portfolio/gallery/croquis-de-londres-2012/thumbnails/big-ben.jpg
+    url: http://emersion.fr/img/project-gallery/croquis-de-londres-2012/big-ben.jpg
+    thumbnail_url: http://emersion.fr/img/project-gallery/croquis-de-londres-2012/thumbnails/big-ben.jpg
 -
     type: image
-    url: http://emersion.fr/img/portfolio/gallery/croquis-de-londres-2012/golden-jubilee-bridge.jpg
-    thumbnail_url: http://emersion.fr/img/portfolio/gallery/croquis-de-londres-2012/thumbnails/golden-jubilee-bridge.jpg
+    url: http://emersion.fr/img/project-gallery/croquis-de-londres-2012/golden-jubilee-bridge.jpg
+    thumbnail_url: http://emersion.fr/img/project-gallery/croquis-de-londres-2012/thumbnails/golden-jubilee-bridge.jpg
 -
     type: image
-    url: http://emersion.fr/img/portfolio/gallery/croquis-de-londres-2012/tower-bridge.jpg
-    thumbnail_url: http://emersion.fr/img/portfolio/gallery/croquis-de-londres-2012/thumbnails/tower-bridge.jpg
+    url: http://emersion.fr/img/project-gallery/croquis-de-londres-2012/tower-bridge.jpg
+    thumbnail_url: http://emersion.fr/img/project-gallery/croquis-de-londres-2012/thumbnails/tower-bridge.jpg
 ---

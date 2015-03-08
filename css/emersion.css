@@ -110,6 +110,11 @@ article > p > img {
 	max-width: 100%;
 }
 
+article iframe {
+	display: block;
+	margin: auto;
+}
+
 @media print {
 	article > p > img {
 		page-break-inside: avoid;
