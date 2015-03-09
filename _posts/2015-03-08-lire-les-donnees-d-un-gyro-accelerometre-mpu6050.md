@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Lire les données d'un gyro/accéléromètre MPU6050"
+title: "Lire les données d'un gyro/accéléromètre MPU6050 avec Node.js"
 date: 2015-03-08 00:00:00
 ---
 
@@ -8,29 +8,26 @@ J'ai eu le temps à la fin des vacances de faire quelques tests avec un gyro/acc
 
 ## Le capteur
 
-![Le capteur](/img/blog/2015-lire-les-donnees-d-un-gyro-accelerometre-mpu6050/sensor.jpg)
+![Le capteur](/img/blog/2015-lire-les-donnees-d-un-gyro-accelerometre-mpu6050/sensor.png)
 
-Le capteur possède 8 connecteurs (appelés _pins_), mais nous ne nous servirons que de 5 d'entre eux. Il est alimenté par 3.3 V via les pins _VCC_ et _GND_. Ce composant communique les données via les pins _SDA_ et _SCL_ en utilisant un protocole appelé [I2C](https://fr.wikipedia.org/wiki/I2C).
+Le capteur possède 8 connecteurs (appelés _pins_), mais nous ne nous servirons que de 4 d'entre eux. Il est alimenté par 3.3 V via les pins _VCC_ et _GND_. Ce composant communique les données via les pins _SDA_ et _SCL_ en utilisant un protocole appelé [I2C](https://fr.wikipedia.org/wiki/I2C).
 
 ![Schéma simplifié du bus I2C](/img/blog/2015-lire-les-donnees-d-un-gyro-accelerometre-mpu6050/i2c-diagram.png)
 
-L'intérêt est que I2C permet de brancher plusieurs composants à ces deux pins. Par exemple, sur le schéma ci-dessus, trois composants (_slaves_) sont reliés au Raspberry Pi (_master_). Les deux fils _SDA_ et _SCL_ sont donc appelés le _bus I2C_. Chaque périphérique branché sur le bus I2C a sa propre adresse qui permet de l'identifier (comme des numéros de maisons dans une rue). Le dernier pin _ADO_ sert à choisir cette adresse.
+L'intérêt est que I2C permet de brancher plusieurs composants à ces deux pins. Par exemple, sur le schéma ci-dessus, trois composants (_slaves_) sont reliés au Raspberry Pi (_master_). Les deux fils _SDA_ et _SCL_ sont donc appelés le _bus I2C_. Chaque périphérique branché sur le bus I2C a sa propre adresse qui permet de l'identifier (comme des numéros de maisons dans une rue).
 
 ## Liaison avec le Raspberry Pi
 
 Il nous faudra configurer le Raspberry Pi pour pouvoir utiliser le bus I2C. Je laisse à ceux qui voudraient le faire la lecture du [tutoriel d'Adafruit](https://learn.adafruit.com/adafruits-raspberry-pi-lesson-4-gpio-setup/configuring-i2c).
 
-Reste ensuite à connecter le MPU6050 au Raspberry Pi. Pour cela, il faut consulter le schéma des pins du Raspberry Pi :
-
-![GPIO disponibles sur un Raspberry Pi modèle B](/img/blog/2015-lire-les-donnees-d-un-gyro-accelerometre-mpu6050/gpio.png)
-<p class="text-center">_NB: les pins 1 et 2 sont vers l'extérieur du Raspberry Pi._</p>
-
-En essayant de ne pas se gourrer de pin comme moi, il faut donc relier :
+Reste ensuite à connecter le MPU6050 au Raspberry Pi. En essayant de ne pas se gourrer de pin comme moi, il faut donc relier :
 
 * Le pin 1 du Raspbeery Pi (3.3 V) au pin _VCC_ du MPU6050
 * Le pin 3 à _SDA_
 * Le pin 5 à _SCL_
 * Le pin 6 à _GND_
+
+[![Schéma des liaisons](/img/blog/2015-lire-les-donnees-d-un-gyro-accelerometre-mpu6050/raspi-mpu6050-thumbnail.png)](/img/blog/2015-lire-les-donnees-d-un-gyro-accelerometre-mpu6050/raspi-mpu6050.png)
 
 Pour pouvoir tester les branchements, on lance la commande `i2cdetect` sur le Raspberry Pi :
 
@@ -55,9 +52,38 @@ Le bus I2C permet d'envoyer et recevoir des données du capteur. On parle d'écr
 
 J'ai réalisé la lecture des données en codant un petit programme en [Node.js](https://nodejs.org). On pourra se référer à [la _datasheet_ du MPU6050](http://www.invensense.com/mems/gyro/documents/RM-MPU-6000A-00v4.2.pdf) pour se documenter sur les registres offerts par le capteur.
 
-Il faut tout d'abord réveiller le capteur en écrivant un bit nul au registre 0x6b (le capteur est en veille par défaut lors de la mise sous tension). Ensuite, il suffit de lire une série de registres pour récupérer les différentes composantes : les données du gyromètre et de l'accéléromètre selon les axes X, Y et Z. Les données récupérées sont des entiers relatifs codés sur deux octets représentés avec le [complément à deux](https://fr.wikipedia.org/wiki/Compl%C3%A9ment_%C3%A0_deux).
+Je me suis basé sur l'excellent module [`i2c-bus`](https://www.npmjs.com/package/i2c-bus) :
 
-J'ai donc créé un petit module Node.js pour lire les données du capteur : https://github.com/emersion/node-i2c-mpu6050
+```js
+var i2c = require('i2c-bus');
+
+var address = 0x68; // Adresse du capteur
+var bus = i2c.openSync(1); // Création d'une connexion au bus I2C
+```
+
+Il faut tout d'abord réveiller le capteur en écrivant un bit nul au registre `0x6b` (le capteur est en veille par défaut lors de la mise sous tension) :
+
+```js
+bus.writeByteSync(address, 0x6b, 0); // On réveille le capteur
+```
+
+Ensuite, il suffit de lire une série de registres pour récupérer les différentes composantes : les données du gyromètre et de l'accéléromètre selon les axes X, Y et Z. Les données récupérées sont des entiers relatifs codés sur deux octets représentés avec le [complément à deux](https://fr.wikipedia.org/wiki/Compl%C3%A9ment_%C3%A0_deux).
+
+```js
+var register = 0x3b; // Registre correspondant à la composante X de l'accéléromètre
+var high = bus.readByteSync(address, register); // Lecture du premier octet
+var low = bus.readByteSync(address, register + 1); // Lecture du deuxième octet
+
+// Conversion de la valeur représentée avec le complément à deux
+var val = (high << 8) + low;
+if (val >= 0x8000) {
+	val = -((65535 - val) + 1);
+}
+
+console.log('Accelerometer X:', val);
+```
+
+J'ai donc créé un petit module Node.js pour lire les données du capteur, dont le code source est disponible ici : https://github.com/emersion/node-i2c-mpu6050
 
 ## Résultat
 

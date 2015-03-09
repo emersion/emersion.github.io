@@ -104,7 +104,7 @@
 article {
 	font-size: 16px;
 }
-article > p > img {
+article > p > img, article > p > a > img {
 	display: block;
 	margin: auto;
 	max-width: 100%;
