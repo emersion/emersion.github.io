@@ -1,8 +1,8 @@
 ---
 layout: default
 ---
-<div class="post">
 
+<div class="post">
   <header class="post-header">
     <h1 class="post-title">{{ page.title }}</h1>
     <p class="post-meta muted">{{ page.date | date: "%b %-d, %Y" }}{% if page.author %} • {{ page.author }}{% endif %}{% if page.meta %} • {{ page.meta }}{% endif %}</p>
@@ -12,4 +12,13 @@ layout: default
     {{ content }}
   </article>
 
+  <ul class="pager">
+	{% if page.previous %}
+	<li><a href="{{ page.previous.url }}" title="{{ page.previous.title }}">Article précédent</a></li>
+	{% endif %}
+	<li><a href="{{ '/blog/' | prepend: site.baseurl }}" title="Retour au blog"><i class="icon-home"></i></a></li>
+	{% if page.next %}
+	<li><a href="{{ page.next.url }}" title="{{ page.next.title }}">Article suivant</a></li>
+	{% endif %}
+  </ul>
 </div>

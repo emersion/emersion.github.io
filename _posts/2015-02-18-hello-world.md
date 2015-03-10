@@ -4,9 +4,7 @@ title: "Hello World!"
 date: 2015-02-18 00:00:00
 ---
 
-Bonjour à tous !
-
-Ceci est mon premier article de blog. À cette occasion, je vais vous présenter mon petit projet de [TIPE](https://fr.wikipedia.org/wiki/Travail_d%27initiative_personnelle_encadr%C3%A9).
+Bonjour à tous ! Ceci est mon premier article de blog. À cette occasion, je vais vous présenter mon petit projet de [TIPE](https://fr.wikipedia.org/wiki/Travail_d%27initiative_personnelle_encadr%C3%A9).
 
 ![Schéma (très) approximatif et artistique](/img/blog/2015-hello-world/quadcopter-ugly.png)
 <p class="text-center">_Vue d'artiste sans prétention._</p>
