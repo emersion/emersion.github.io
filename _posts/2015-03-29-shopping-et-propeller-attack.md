@@ -36,7 +36,7 @@ Ici, on n'utilisera pas le connecteur rouge qui sort du 5V : on alimente le Rasp
 
 ### Commande du moteur
 
-Le circuit réalisé, il nous faut maintenant nous occuper de la partie logicielle. Nous pouvons contrôler l'ESC en envoyant des impulsions via le GPIO, c'est la durée des impulsions qui déterminera la vitesse du moteur (le nom de ce protocole est PWM).
+Le circuit réalisé, il nous faut maintenant nous occuper de la partie logicielle. Nous pouvons contrôler l'ESC en envoyant des impulsions via le GPIO, c'est la durée des impulsions qui déterminera la vitesse du moteur (cette technique est appelée [PWM](https://fr.wikipedia.org/wiki/Modulation_de_largeur_d%27impulsion)).
 
 Il existe plusieurs librairies qui sont capables d'envoyer des impulsions de ce type. [ServoBlaster](https://github.com/richardghirst/PiBits/tree/master/ServoBlaster) m'a semblé la librarie la plus adaptée. L'installation est simple :
 
