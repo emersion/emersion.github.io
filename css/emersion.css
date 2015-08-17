@@ -102,7 +102,7 @@
 /* ARTICLE */
 
 article {
-	font-size: 16px;
+	font-size: 18px;
 }
 article > p > img, article > p > a > img {
 	display: block;

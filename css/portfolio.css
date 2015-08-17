@@ -36,6 +36,8 @@ body {
 }
 .featurette-image {
 	margin-top: -120px; /* Vertically center images part 3: negative margin up the image the same amount of the padding to center it. */
+	max-width: 512px;
+	max-height: 512px;
 }
 
 /* Give some space on the sides of the floated elements so text doesn't run right into it. */

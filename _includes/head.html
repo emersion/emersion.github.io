@@ -31,7 +31,7 @@
   <meta content="{{ page.date | date_to_xmlschema }}" property="article:published_time">
   {% endif %}
   {% if page.image %}
-  <meta content="{{ page.image }}" property="og:image">
+  <meta content="{{ page.image | prepend: site.baseurl | prepend: site.url }}" property="og:image">
   {% else %}
   <meta content="{{ site.url }}/img/about/avatar.jpg" property="og:image">
   {% endif %}
