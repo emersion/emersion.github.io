@@ -17,9 +17,10 @@ permalink: /about/
 
 ## Je suis aussi...
 
+* Membre de l'équipe de [Blue Screen of Life](http://bsolife.fr)
+* Finaliste au concours [Prologin](http://prologin.org/) 2014 et 2015
 * Professeur de programmation dans l'association [Micronet 91](http://micronet91.com/)
 * Secrétaire du GUL-L [Linux-sur-Yvette](http://linux-sur-yvette.org/)
-* Finaliste au concours [Prologin](http://prologin.org/) 2014 et 2015
 * Éclaireur chez les [Éclaireurs du Midi](http://eclaireursdumidi.fr/)
 
 ## Clefs
