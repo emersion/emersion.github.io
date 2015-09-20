@@ -4,7 +4,7 @@ title: "Stabilisation du bicoptère"
 date: 2015-09-20 00:00:00
 ---
 
-Pendant les vacances scolaires, notre équipe a pu travailler et bien avancer sur plusieurs points :
+Pendant les vacances scolaires, notre équipe a pu travailler et bien avancer sur plusieurs points.
 
 * La structure du quadcopter : elle a été construite en bois, avec amour. Elle n'est pas encore utilisée pour l'instant :  on se concentre encore sur l'étude du bicoptère.
 
