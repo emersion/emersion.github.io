@@ -2,6 +2,7 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="referrer" content="origin">
 
   <title>{% if page.title %}{{ page.title }} &middot; {{ site.title }}{% else %}{{ site.title }}{% endif %}</title>
   <meta name="description" content="{% if page.excerpt %}{{ page.excerpt | strip_html | strip_newlines | truncate: 160 }}{% else %}{{ site.description }}{% endif %}">
@@ -32,7 +33,5 @@
   {% endif %}
   {% if page.image %}
   <meta content="{{ page.image | prepend: site.baseurl | prepend: site.url }}" property="og:image">
-  {% else %}
-  <meta content="{{ site.url }}/img/about/avatar.jpg" property="og:image">
   {% endif %}
 </head>
