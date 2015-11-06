@@ -21,6 +21,7 @@ permalink: /about/
 * Finaliste au concours [Prologin](http://prologin.org/) 2014 et 2015
 * Professeur de programmation dans l'association [Micronet 91](http://micronet91.com/)
 * Secrétaire du GUL-L [Linux-sur-Yvette](http://linux-sur-yvette.org/)
+* Membre du club de cinéma [Orsay Cam'](https://www.youtube.com/user/Orsaycam)
 * Éclaireur chez les [Éclaireurs du Midi](http://eclaireursdumidi.fr/)
 
 ## Clefs
