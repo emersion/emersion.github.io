@@ -15,9 +15,9 @@ layout: default
 		<p class="lead">{{ page.excerpt }}</p>
 		<p>
 			{% if page.website %}
-				<a class="btn btn-large btn-primary" href="{{page.website}}" target="_blank">Acc&eacute;der au site Web &raquo;</a>
+				<a class="btn btn-large btn-primary" href="{{ page.website }}" target="_blank">Acc&eacute;der au site Web &raquo;</a>
 			{% endif %}
-			<a class="btn btn-large btn-inverse" href="/category/{{page.category}}">Projets similaires</a>
+			<a class="btn btn-large btn-inverse" href="{{ page.category | prepend:"/category/" | prepend: site.baseurl }}">Projets similaires</a>
 		</p>
 	</header>
 
