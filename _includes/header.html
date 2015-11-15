@@ -15,7 +15,7 @@
           </li>
 
           {% for page in site.pages %}
-            {% if page.title %}{% unless page.url contains '/404' %}
+            {% if page.title %}{% unless page.show_in_nav == false %}
               <li class="nav-item">
                 <a href="{{ page.url | prepend: site.baseurl }}" class="nav-link">{{ page.title }}</a>
               </li>
