@@ -1,0 +1,20 @@
+{
+  "name": "emersion.github.io",
+  "version": "0.0.0",
+  "homepage": "http://emersion.fr",
+  "authors": [
+    "emersion <contact@emersion.fr>"
+  ],
+  "license": "CC-BY-SA",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "components/",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "4.0.0-alpha"
+  }
+}

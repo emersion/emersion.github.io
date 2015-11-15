@@ -2,14 +2,10 @@
 layout: default
 ---
 
-<!-- Marketing messaging and featurettes
-================================================== -->
-<!-- Wrap the rest of the page in another container to center all the content. -->
-<div class="marketing">
-  <!-- Three columns of text below the carousel -->
-  <div class="row">
+<div class="container">
+  <div class="row text-center">
     {% for category in site.projects_categories %}
-      <div class="span4">
+      <div class="col-md-4">
         {% if 1 %}
           <img class="img-circle" src="{{ site.baseurl }}/img/category/medium/{{category.slug}}.png" alt="{{ category.title }}"/>
         {% else %}
@@ -17,59 +13,56 @@ layout: default
         {% endif %}
         <h2>{{ category.title }}</h2>
         <p>{{ category.summary }}</p>
-        <p><a class="btn btn-inverse" href="{{ category.url | prepend: site.baseurl }}">Plus &raquo;</a></p>
-      </div><!-- /.span4 -->
+        <p><a class="btn btn-secondary" href="{{ category.url | prepend: site.baseurl }}">Plus &raquo;</a></p>
+      </div>
     {% endfor %}
 
-    <div class="span4">
+    <div class="col-md-4">
       <img src="{{ '/img/contact/icon-medium.png' | prepend: site.baseurl }}" alt="Contact">
       <h2>Contact</h2>
       <p>N'h&eacute;sitez pas &agrave; me contacter pour toute question !</p>
       <p class="btn-group">
         <a class="btn btn-primary" href="{{ '/about/' | prepend: site.baseurl }}">À propos</a>
-        <a class="btn" href="{{ '/contact/' | prepend: site.baseurl }}">Contact</a>
+        <a class="btn btn-secondary" href="{{ '/contact/' | prepend: site.baseurl }}">Contact</a>
       </p>
-    </div><!-- /.span4 -->
-  </div><!-- /.row -->
-
-  <!-- START THE FEATURETTES -->
-  <hr class="featurette-divider" />
-  {% assign i = 0 %}
-  {% for project in site.projects %}
-    {% assign slug = (project.relative_path | remove_first:'_projects/' | remove_first:'.md') %}
-    
-    {% if site.data.featured contains slug %}
-
-    {% capture picture_path %}/img/project/large/{{ slug }}.png{% endcapture %}
-    {% assign has_picture = (site.static_files | where:'path',picture_path | size) %}
-    {% assign modulo = i | modulo:2 %}
-    <div class="featurette">
-      {% if has_picture == 1 %}
-        <img src="{{ picture_path }}" alt="{{ project.title }}" class="featurette-image pull-{% if modulo == 1 %}right{% else %}left{% endif %}"/>
-      {% endif %}
-      <h2 class="featurette-heading">{{ project.title }}. <span class="muted">{{ project.subtitle }}</span></h2>
-      <p class="lead">{{ project.excerpt | strip_html }}</p>
-      <p><a class="btn btn-large btn-primary" href="{{ project.url | prepend: site.baseurl }}">En savoir plus &raquo;</a></p>
     </div>
+  </div>
 
-    <span class="clearfix"></span>
-    <hr class="featurette-divider"/>
+  <hr>
 
-    {% assign i = i | plus:1 %}
-    {% endif %}
-  {% endfor %}
-  <!-- /END THE FEATURETTES -->
-  
-  <div class="btn-group pull-right">
-    {% for category in site.projects_categories %}
-      <a href="{{ site.baseurl }}/category/{{ category.slug }}" class="btn btn-large btn-inverse">{{category.title}}</a>
+  <div class="featurette">
+    {% assign i = 0 %}
+    {% assign sorted_projects = site.projects | sort:'date' | reverse %}
+    {% for project in sorted_projects %}
+      {% assign slug = (project.relative_path | remove_first:'_projects/' | remove_first:'.md') %}
+
+      {% if site.data.featured contains slug %}
+
+      {% capture picture_path %}/img/project/large/{{ slug }}.png{% endcapture %}
+      {% assign has_picture = (site.static_files | where:'path',picture_path | size) %}
+      {% assign modulo = i | modulo:2 %}
+      <div class="featurette-item m-b-lg m-t-lg clearfix">
+        {% if has_picture == 1 %}
+          <div class="featurette-media m-r m-l pull-{% if modulo == 1 %}left{% else %}right{% endif %}">
+            <img src="{{ picture_path }}" alt="{{ project.title }}">
+          </div>
+        {% endif %}
+        <div class="featurette-body">
+          <h2>{{ project.title }}. <span class="muted">{{ project.subtitle }}</span></h2>
+          <p class="lead">{{ project.excerpt | strip_html }}</p>
+          <p><a class="btn btn-large btn-primary" href="{{ project.url | prepend: site.baseurl }}">En savoir plus &raquo;</a></p>
+        </div>
+      </div>
+      {% assign i = i | plus:1 %}
+      {% endif %}
     {% endfor %}
   </div>
 
   <h1>Autres projets</h1>
+
   <div class="row">
     {% assign i = 0 %}
-    {% for project in site.projects %}
+    {% for project in sorted_projects %}
       {% assign slug = (project.relative_path | remove_first:'_projects/' | remove_first:'.md') %}
 
       {% unless site.data.featured contains slug %}
@@ -82,7 +75,8 @@ layout: default
         </div><!-- /.row -->
         <div class="row">
       {% endif %}
-      <div class="span4">
+
+      <div class="col-md-4 text-center">
         {% if has_picture == 1 %}
           <img src="{{ picture_path }}" alt="{{ project.title }}"/>
         {% else %}
@@ -90,14 +84,24 @@ layout: default
         {% endif %}
         <h2>{{ project.title }}</h2>
         <p>{{ project.excerpt | strip_html }}</p>
-        <p><a class="btn" href="{{ project.url | prepend: site.baseurl }}">Plus &raquo;</a></p>
-      </div><!-- /.span4 -->
-
+        <p><a class="btn btn-secondary" href="{{ project.url | prepend: site.baseurl }}">Plus &raquo;</a></p>
+      </div>
       {% assign i = i | plus:1 %}
       {% endunless %}
     {% endfor %}
-  </div><!-- /.row -->
+  </div>
+
+  {% if site.posts | size %}
+  <div class="text-center">
+    <div class="btn-group">
+      {% for category in site.projects_categories %}
+        <a href="{{ site.baseurl }}/category/{{ category.slug }}" class="btn btn-large btn-secondary btn-lg">{{category.title}}</a>
+      {% endfor %}
+    </div>
+  </div>
+  {% endif %}
+
   {% unless site.posts | size %}
-    <p class="muted">Il n'y a aucun autre projet pour le moment.</p>
+    <p class="text-muted">Il n'y a aucun autre projet pour le moment.</p>
   {% endunless %}
-</div><!-- /.container -->
+</div>
