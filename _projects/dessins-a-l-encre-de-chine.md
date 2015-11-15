@@ -7,18 +7,18 @@ excerpt: "Quelques-unes de mes réalisations à l'encre de Chine."
 gallery:
 -
     type: image
-    url: http://emersion.fr/img/project-gallery/dessins-a-l-encre-de-chine/jing.jpg
-    thumbnail_url: http://emersion.fr/img/project-gallery/dessins-a-l-encre-de-chine/thumbnails/jing.jpg
+    url: /img/project-gallery/dessins-a-l-encre-de-chine/jing.jpg
+    thumbnail_url: /img/project-gallery/dessins-a-l-encre-de-chine/thumbnails/jing.jpg
 -
     type: image
-    url: http://emersion.fr/img/project-gallery/dessins-a-l-encre-de-chine/montagne-pa.jpg
-    thumbnail_url: http://emersion.fr/img/project-gallery/dessins-a-l-encre-de-chine/thumbnails/montagne-pa.jpg
+    url: /img/project-gallery/dessins-a-l-encre-de-chine/montagne-pa.jpg
+    thumbnail_url: /img/project-gallery/dessins-a-l-encre-de-chine/thumbnails/montagne-pa.jpg
 -
     type: image
-    url: http://emersion.fr/img/project-gallery/dessins-a-l-encre-de-chine/montagne-la.jpg
-    thumbnail_url: http://emersion.fr/img/project-gallery/dessins-a-l-encre-de-chine/thumbnails/montagne-la.jpg
+    url: /img/project-gallery/dessins-a-l-encre-de-chine/montagne-la.jpg
+    thumbnail_url: /img/project-gallery/dessins-a-l-encre-de-chine/thumbnails/montagne-la.jpg
 -
     type: image
-    url: http://emersion.fr/img/project-gallery/dessins-a-l-encre-de-chine/montagne-ju.jpg
-    thumbnail_url: http://emersion.fr/img/project-gallery/dessins-a-l-encre-de-chine/thumbnails/montagne-ju.jpg
+    url: /img/project-gallery/dessins-a-l-encre-de-chine/montagne-ju.jpg
+    thumbnail_url: /img/project-gallery/dessins-a-l-encre-de-chine/thumbnails/montagne-ju.jpg
 ---

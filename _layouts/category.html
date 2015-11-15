@@ -2,7 +2,7 @@
 layout: default
 ---
 
-<div class="container marketing">
+<div class="container">
 	<img class="img-circle pull-right" src="{{ site.baseurl }}/img/category/medium/{{ page.slug }}.png"/>
 
 	<div class="page-header">
@@ -10,7 +10,7 @@ layout: default
 		<p class="lead">{{ page.summary }}</p>
 	</div>
 
-	{% assign projects = (site.projects | where:'category',page.slug) %}
+	{% assign projects = site.projects | where:'category',page.slug | sort:'date' | reverse %}
 	<div class="row">
 		{% for project in projects %}
 			{% assign slug = (project.relative_path | remove_first:'_projects/' | remove_first:'.md') %}
@@ -22,7 +22,7 @@ layout: default
 				</div><!-- /.row -->
 				<div class="row">
 			{% endif %}
-			<div class="span4">
+			<div class="col-md-4 text-center">
 				{% if has_picture == 1 %}
 					<img src="{{ picture_path }}"/>
 				{% else %}
@@ -30,10 +30,10 @@ layout: default
 				{% endif %}
 				<h2>{{ project.title }}</h2>
 				<p>{{ project.excerpt }}</p>
-				<p><a class="btn" href="{{ project.url | prepend: site.baseurl }}">Plus &raquo;</a></p>
-			</div><!-- /.span4 -->
+				<p><a class="btn btn-secondary" href="{{ project.url | prepend: site.baseurl }}">Plus &raquo;</a></p>
+			</div>
 		{% endfor %}
-	</div><!-- /.row -->
+	</div>
 
 	{% if projects.size == 0 %}
 		<p class="muted">Aucun projet dans cette catégorie.</p>
