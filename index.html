@@ -58,6 +58,24 @@ layout: default
     {% endfor %}
   </div>
 
+  <h1>Derniers articles du blog</h1>
+
+  <div class="row">
+    {% for post in site.posts limit:2 %}
+      <div class="col-sm-6">
+        <article class="card card-block">
+          <h3 class="card-title">{{ post.title }}</h3>
+          <p class="card-text">{{ post.excerpt }}</p>
+          <a href="{{ post.url }}" class="btn btn-secondary">Lire la suite</a>
+        </article>
+      </div>
+    {% endfor %}
+  </div>
+
+  <ul class="pager">
+    <li><a href="{{ site.baseurl }}/blog">Tous les articles</a></li>
+  </ul>
+
   <h1>Autres projets</h1>
 
   <div class="row">
@@ -65,7 +83,7 @@ layout: default
     {% for project in sorted_projects %}
       {% assign slug = (project.relative_path | remove_first:'_projects/' | remove_first:'.md') %}
 
-      {% unless site.data.featured contains slug %}
+      {% unless site.data.featured contains slug or i >= 6 %}
 
       {% capture picture_path %}/img/project/medium/{{ slug }}.png{% endcapture %}
       {% assign has_picture = (site.static_files | where:'path',picture_path | size) %}
@@ -91,17 +109,9 @@ layout: default
     {% endfor %}
   </div>
 
-  {% if site.posts | size %}
-  <div class="text-center">
-    <div class="btn-group">
-      {% for category in site.projects_categories %}
-        <a href="{{ site.baseurl }}/category/{{ category.slug }}" class="btn btn-large btn-secondary btn-lg">{{category.title}}</a>
-      {% endfor %}
-    </div>
-  </div>
-  {% endif %}
-
-  {% unless site.posts | size %}
-    <p class="text-muted">Il n'y a aucun autre projet pour le moment.</p>
-  {% endunless %}
+  <ul class="pager">
+    {% for category in site.projects_categories %}
+      <li><a href="{{ site.baseurl }}/category/{{ category.slug }}">{{category.title}}</a></li>
+    {% endfor %}
+  </ul>
 </div>
