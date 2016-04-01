@@ -26,8 +26,9 @@ permalink: /about/
 
 ## Clefs
 
-* Empreinte PGP : `4BCA 7649 CA66 CE0F 8110 2D29 BA7F 0461 0003 0927`
-* Clef Tox : `4928871FDD12F1FA504C1C3D2C245F8AC7B40E57D989ED7D107CEB02D01EE648292DFE073A15`
+Empreinte PGP : `4BCA 7649 CA66 CE0F 8110 2D29 BA7F 0461 0003 0927`
+
+Vous pouvez me trouver sur Keybase : https://keybase.io/emersion
 
 ## Contributions
 
