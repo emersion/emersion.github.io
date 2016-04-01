@@ -26,7 +26,7 @@ permalink: /about/
 
 ## Clefs
 
-Empreinte PGP : `4BCA 7649 CA66 CE0F 8110 2D29 BA7F 0461 0003 0927`
+Empreinte PGP : `34FF 9526 CFEF 0E97 A340  E2E4 0FDE 7BE0 E88F 5E48`
 
 Vous pouvez me trouver sur Keybase : https://keybase.io/emersion
 
