@@ -11,7 +11,7 @@ github_username: emersion
 deviantart_username: emersion-fr
 seenthis_username: emersion
 
-paginate: 5
+paginate: 10
 paginate_path: "/blog/page:num/"
 
 permalink: /blog/:year/:title/
