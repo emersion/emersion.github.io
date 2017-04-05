@@ -18,7 +18,7 @@ permalink: /about/
 ## Je suis aussi...
 
 * Membre de l'équipe de [Blue Screen of Life](http://bsolife.fr)
-* Finaliste au concours [Prologin](http://prologin.org/) 2014 et 2015
+* Finaliste au concours [Prologin](http://prologin.org/) 2014, 2015 et 2016
 * Professeur de programmation dans l'association [Micronet 91](http://micronet91.com/)
 * Secrétaire du GUL-L [Linux-sur-Yvette](http://linux-sur-yvette.org/)
 * Membre du club de cinéma [Orsay Cam'](https://www.youtube.com/user/Orsaycam)
@@ -36,6 +36,7 @@ Vous pouvez me trouver sur Keybase : https://keybase.io/emersion
 * [elementary](https://github.com/elementary/mvp)
 * [MarkMyWords](https://github.com/voldyman/MarkMyWords)
 * [geary](https://wiki.gnome.org/Apps/Geary)
+* [checkup](https://github.com/sourcegraph/checkup)
 * [highlight.js](https://github.com/isagalaev/highlight.js)
 * [peerjs](https://github.com/peers/peerjs)
 * [node-pid-controller](https://github.com/Philmod/node-pid-controller)
