@@ -71,6 +71,8 @@ conflicting with LEDE's IP address. To fix this, I had to edit
 `192.168.1.1` by `192.168.2.1` under the `[lan]` section. Reboot the router and
 now you should be able to run `opkg update`.
 
+You can install `kmod-usb3` to get the USB port to work.
+
 ## What if I've bricked my router?
 
 If something goes wrong, there's a way to unbrick your router using [nmrpflash](https://github.com/jclehner/nmrpflash).
