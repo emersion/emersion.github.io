@@ -1,117 +1,12 @@
----
-layout: default
----
-
-<div class="container">
-  <div class="row text-center">
-    {% for category in site.projects_categories %}
-      <div class="col-md-4">
-        {% if 1 %}
-          <img class="img-circle" src="{{ site.baseurl }}/img/category/medium/{{category.slug}}.png" alt="{{ category.title }}"/>
-        {% else %}
-          <img src="{{ '/img/category/medium/generic.png' | prepend: site.baseurl }}" alt="Generic category"/>
-        {% endif %}
-        <h2>{{ category.title }}</h2>
-        <p>{{ category.summary }}</p>
-        <p><a class="btn btn-secondary" href="{{ category.url | prepend: site.baseurl }}">Plus &raquo;</a></p>
-      </div>
-    {% endfor %}
-
-    <div class="col-md-4">
-      <img src="{{ '/img/contact/icon-medium.png' | prepend: site.baseurl }}" alt="Contact">
-      <h2>Contact</h2>
-      <p>N'h&eacute;sitez pas &agrave; me contacter pour toute question !</p>
-      <p class="btn-group">
-        <a class="btn btn-primary" href="{{ '/about/' | prepend: site.baseurl }}">À propos</a>
-        <a class="btn btn-secondary" href="{{ '/contact/' | prepend: site.baseurl }}">Contact</a>
-      </p>
-    </div>
-  </div>
-
-  <hr>
-
-  <div class="featurette">
-    {% assign i = 0 %}
-    {% assign sorted_projects = site.projects | sort:'date' | reverse %}
-    {% for project in sorted_projects %}
-      {% assign slug = (project.relative_path | remove_first:'_projects/' | remove_first:'.md') %}
-
-      {% if site.data.featured contains slug %}
-
-      {% capture picture_path %}/img/project/large/{{ slug }}.png{% endcapture %}
-      {% assign has_picture = (site.static_files | where:'path',picture_path | size) %}
-      {% assign modulo = i | modulo:2 %}
-      <div class="featurette-item m-b-lg m-t-lg clearfix">
-        {% if has_picture == 1 %}
-          <div class="featurette-media m-r m-l pull-{% if modulo == 1 %}left{% else %}right{% endif %}">
-            <img src="{{ picture_path }}" alt="{{ project.title }}">
-          </div>
-        {% endif %}
-        <div class="featurette-body">
-          <h2>{{ project.title }}. <span class="muted">{{ project.subtitle }}</span></h2>
-          <p class="lead">{{ project.excerpt | strip_html }}</p>
-          <p><a class="btn btn-large btn-primary" href="{{ project.url | prepend: site.baseurl }}">En savoir plus &raquo;</a></p>
-        </div>
-      </div>
-      {% assign i = i | plus:1 %}
-      {% endif %}
-    {% endfor %}
-  </div>
-
-  <h1>Derniers articles du blog</h1>
-
-  <div class="row">
-    {% for post in site.posts limit:2 %}
-      <div class="col-sm-6">
-        <article class="card card-block">
-          <h3 class="card-title">{{ post.title }}</h3>
-          <p class="card-text">{{ post.excerpt }}</p>
-          <a href="{{ post.url }}" class="btn btn-secondary">Lire la suite</a>
-        </article>
-      </div>
-    {% endfor %}
-  </div>
-
-  <ul class="pager">
-    <li><a href="{{ site.baseurl }}/blog">Tous les articles</a></li>
-  </ul>
-
-  <h1>Autres projets</h1>
-
-  <div class="row">
-    {% assign i = 0 %}
-    {% for project in sorted_projects %}
-      {% assign slug = (project.relative_path | remove_first:'_projects/' | remove_first:'.md') %}
-
-      {% unless site.data.featured contains slug or i >= 6 %}
-
-      {% capture picture_path %}/img/project/medium/{{ slug }}.png{% endcapture %}
-      {% assign has_picture = (site.static_files | where:'path',picture_path | size) %}
-      {% assign row_index = i | modulo:3 %}
-
-      {% if row_index == 0 %}
-        </div><!-- /.row -->
-        <div class="row">
-      {% endif %}
-
-      <div class="col-md-4 text-center">
-        {% if has_picture == 1 %}
-          <img src="{{ picture_path }}" alt="{{ project.title }}"/>
-        {% else %}
-          <img src="{{ '/img/project/medium/generic.png' | prepend: site.baseurl }}" alt="Generic project"/>
-        {% endif %}
-        <h2>{{ project.title }}</h2>
-        <p>{{ project.excerpt | strip_html }}</p>
-        <p><a class="btn btn-secondary" href="{{ project.url | prepend: site.baseurl }}">Plus &raquo;</a></p>
-      </div>
-      {% assign i = i | plus:1 %}
-      {% endunless %}
-    {% endfor %}
-  </div>
-
-  <ul class="pager">
-    {% for category in site.projects_categories %}
-      <li><a href="{{ site.baseurl }}/category/{{ category.slug }}">{{category.title}}</a></li>
-    {% endfor %}
-  </ul>
-</div>
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="Refresh" content="0; url=https://emersion.fr"/>
+	<title>emersion</title>
+</head>
+<body>
+	<p>Nothing to see here; <a href="https://emersion.fr">move along</a>.</p>
+</body>
+</body>
+</html>
